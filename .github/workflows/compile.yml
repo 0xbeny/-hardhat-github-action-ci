@@ -11,17 +11,16 @@ on:
 jobs:
   compile:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-      - name: set ENVs
-        env:
-          PRIVATE_KEY1: ${{ secrets.PRIVATE_KEY_1 }}
-          PRIVATE_KEY2: ${{ secrets.PRIVATE_KEY_2 }}
-      - name: Install / packages
-        uses: actions/setup-node@v3
+      - name: "Check out the repo"
+        uses: "actions/checkout@v3"
+
+      - name: "Install Node.js"
+        uses: "actions/setup-node@v3"
         with:
           node-version: ${{ secrets.NODE_VERSION }}
-      - run: npm install
-      - name: Compile code
-      - run: npm run compile
+      
+      - name: "Install the Node.Js dependencies"
+        run: "npm install"
+      - name: "Compile code"
+      - run: "npm run compile"
