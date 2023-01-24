@@ -1,5 +1,10 @@
 name: Hardhat Workflow
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+
+env:
+  PRIVATE_KEY1: ${{ secrets.PRIVATE_KEY1 }}
+  PRIVATE_KEY2: ${{ secrets.PRIVATE_KEY2 }}
+
 on:
   pull_request:
     branches:
@@ -10,17 +15,18 @@ on:
 jobs:
   compile:
     runs-on: ubuntu-latest
+    env:
+      PRIVATE_KEY1: ${{ secrets.PRIVATE_KEY1 }}
+      PRIVATE_KEY2: ${{ secrets.PRIVATE_KEY2 }}
+
     steps:
       - uses: actions/checkout@v3
 
-      - name: Compiling the Whole Solidity code
+      - name: Install / packages
         uses: actions/setup-node@v3
         with:
           node-version: ${{ secrets.NODE_VERSION }}
-      - run: |
+      - run: npm install
 
-            npm install
-            npm run compile
-        env: 
-          PRIVATE_KEY1: ${{ secrets.PRIVATE_KEY1 }}
-          PRIVATE_KEY2: ${{ secrets.PRIVATE_KEY2 }}
+      - name: Compile code
+      - run: npm run compile
