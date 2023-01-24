@@ -1,6 +1,9 @@
 {
   "name": "akka-hardhat-starter",
   "description": "This repo used internally in Akka Dev Team as template",
+  "scripts": {
+    "compile": "hardhat compile"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.13",
