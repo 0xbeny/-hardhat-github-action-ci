@@ -1,10 +1,6 @@
 name: Hardhat Workflow
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
-env:
-  PRIVATE_KEY1: ${{ secrets.PRIVATE_KEY1 }}
-  PRIVATE_KEY2: ${{ secrets.PRIVATE_KEY2 }}
-
 on:
   pull_request:
     branches:
