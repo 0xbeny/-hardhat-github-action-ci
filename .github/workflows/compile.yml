@@ -1,6 +1,8 @@
-name: Hardhat Workflow
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
+name: Hardhat CI
+run-name: ${{ github.actor }} is pushing new version on GitHub Actions 🚀
+env: 
+  PRIVATE_KEY_1: ${{ secrets.PRIVATE_KEY_1 }}
+  PRIVATE_KEY_2: ${{ secrets.PRIVATE_KEY_2 }}
 on:
   pull_request:
     branches:
@@ -11,18 +13,13 @@ on:
 jobs:
   compile:
     runs-on: ubuntu-latest
-    env:
-      PRIVATE_KEY1: ${{ secrets.PRIVATE_KEY1 }}
-      PRIVATE_KEY2: ${{ secrets.PRIVATE_KEY2 }}
-
     steps:
+      - name: "Check out the repo"
+        uses: "actions/checkout@v3"
       - uses: actions/checkout@v3
-
-      - name: Install / packages
+      - name: Use Node.js version ${{ secrets.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ secrets.NODE_VERSION }}
       - run: npm install
-      - run: echo ${{ secrets.PRIVATE_KEY2 }} ${{ secrets.PRIVATE_KEY1 }} ${{ secrets.NODE_VERSION }}
-      - name: Compile code
       - run: npm run compile
