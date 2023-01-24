@@ -14,13 +14,6 @@ jobs:
     steps:
       - name: "Check out the repo"
         uses: "actions/checkout@v3"
-
-      - name: "Install Node.js"
-        uses: "actions/setup-node@v3"
-        with:
-          node-version: ${{ secrets.NODE_VERSION }}
-      
-      - name: "Install the Node.Js dependencies"
-        run: "npm install"
-      - name: "Compile code"
-      - run: "npm run compile"
+      - name: Hardhat Solidity
+        uses: amine7777/hardhat-action@v1
+  
