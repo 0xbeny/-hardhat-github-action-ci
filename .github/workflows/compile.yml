@@ -1,6 +1,8 @@
 name: Hardhat Workflow
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
+env: 
+  PRIVATE_KEY_1: ${{ secrets.PRIVATE_KEY_1 }}
+  PRIVATE_KEY_2: ${{ secrets.PRIVATE_KEY_2 }}
 on:
   pull_request:
     branches:
@@ -15,7 +17,7 @@ jobs:
       - name: "Check out the repo"
         uses: "actions/checkout@v3"
       - uses: actions/checkout@v3
-      - name: Use Node.js version ${{ matrix.node-version }}
+      - name: Use Node.js version ${{ secrets.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ secrets.NODE_VERSION }}
