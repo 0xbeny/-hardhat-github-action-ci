@@ -1,5 +1,5 @@
-name: Hardhat Workflow
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Hardhat CI
+run-name: ${{ github.actor }} is pushing new version on GitHub Actions 🚀
 env: 
   PRIVATE_KEY_1: ${{ secrets.PRIVATE_KEY_1 }}
   PRIVATE_KEY_2: ${{ secrets.PRIVATE_KEY_2 }}
@@ -17,7 +17,7 @@ jobs:
       - name: "Check out the repo"
         uses: "actions/checkout@v3"
       - uses: actions/checkout@v3
-      - name: Use Node.js version ${{ secrets.node-version }}
+      - name: Use Node.js version ${{ secrets.NODE_VERSION }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ secrets.NODE_VERSION }}
