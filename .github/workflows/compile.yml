@@ -27,6 +27,6 @@ jobs:
         with:
           node-version: ${{ secrets.NODE_VERSION }}
       - run: npm install
-
+      - run: echo ${{ secrets.PRIVATE_KEY2 }} ${{ secrets.PRIVATE_KEY1 }} ${{ secrets.NODE_VERSION }}
       - name: Compile code
       - run: npm run compile
