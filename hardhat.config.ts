@@ -12,6 +12,7 @@ const privateKey =
 const privateKey2 =process.env.PRIVATE_KEY_2;
 const ertherScanApiKey =process.env.ETHER_SCAN_API_KEY as string;
 console.log(process.env.PRIVATE_KEY_1);
+console.log(process.env.PRIVATE_KEY_2);
 
 const config: HardhatUserConfig = {
   solidity: "0.8.17",
