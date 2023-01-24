@@ -16,6 +16,11 @@ jobs:
       - name: Compiling the Whole Solidity code
         uses: actions/setup-node@v3
         with:
-          node-version: 16.13.1
-      - run: npm install
-      - run: npm run compile
+          node-version: ${{ secrets.NODE_VERSION }}
+      - run: |
+
+            npm install
+            npm run compile
+        env: 
+          PRIVATE_KEY1: ${{ secrets.PRIVATE_KEY1 }}
+          PRIVATE_KEY2: ${{ secrets.PRIVATE_KEY2 }}
